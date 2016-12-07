@@ -12,12 +12,12 @@ var animalToDogTranslator = function(sentence) {
   return sentence.replace("animal", "dog");
 };
 
-/*
+
 // Write your own translator for your preferred animal!
-var ____ = ____(sentence) {
-  return ____._____(____, ____);
+var animalToSquirrelTranslator = function(sentence) {
+  return sentence.replace("animal", "squirrel");
 };
-*/
+
 
 var favoriteAnimal = function(animalTranslator) {
   return animalTranslator("animals are the best!");
@@ -36,12 +36,12 @@ if (!module.parent) {
 
   // Choose a callback function from the animalToXTranslators above to make the
   // following use cases pass.
-  // console.log(favoriteAnimal(____) === "cats are the best!");
-  // console.log(favoriteAnimal(____) === "dogs are the best!");
+  console.log(favoriteAnimal(animalToCatTranslator) === "cats are the best!");
+  console.log(favoriteAnimal(animalToDogTranslator) === "dogs are the best!");
 
   // Define your own animal translator! Uncomment lines 15 to 20, then make the
   // following use case pass.
-  // console.log(favoriteAnimal(____) === "____s are the best!");
+  console.log(favoriteAnimal(animalToSquirrelTranslator) === "squirrels are the best!");
 
   // Have you tried to put ()'s after the callback function being passed as an
   // argument? What happened? Why do you think that is?
