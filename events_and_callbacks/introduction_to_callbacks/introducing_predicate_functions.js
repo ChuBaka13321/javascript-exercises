@@ -17,29 +17,29 @@ var horribleSaver = function(balance) {
 };
 
 var yourSpendingStrategy = function(balance) {
-  // Your code here
+  return balance > 100;
 };
 
-/*
-var shouldIBuyThis = function(balance, ____) {
-  if ( ____(balance) ) {
+
+var shouldIBuyThis = function(balance, saverSpender) {
+  if ( saverSpender(balance) ) {
     return "Sure! I've got the money!";
   } else {
     return "Nope! Gotta keep my savings up!";
   }
 };
-*/
 
-/*
+
+
 function smarterShouldIBuyThis(cost, balance, strategy) {
   var futureBalance = balance - cost;
-   if ( ____(futureBalance) ) {
+   if ( strategy(futureBalance) ) {
     return "Sure! I've got the money!";
   } else {
     return "Nope! Gotta keep my savings up!";
   }
 };
-*/
+
 
 
 // USE CASES ARE HERE. STOP SCROLLING! STOOOPPPPPPP.
@@ -57,25 +57,25 @@ if (!module.parent) {
   // Find, uncomment and implement the `shouldIBuyThis` function above, then
   // uncomment and implement each of the following use cases one by one.
 
-  // console.log(shouldIBuyThis(20, ____) === "Nope! Gotta keep my savings up!");
-  // console.log(shouldIBuyThis(20, ____) ===  "Sure! I've got the money!");
-  // console.log(shouldIBuyThis(____, horribleSaver) === "Sure! I've got the money!");
+  console.log(shouldIBuyThis(20, conservativeSpender) === "Nope! Gotta keep my savings up!");
+  console.log(shouldIBuyThis(20, liberalSpender) ===  "Sure! I've got the money!");
+  console.log(shouldIBuyThis(1, horribleSaver) === "Sure! I've got the money!");
 
   // Find, uncomment, and implement the `smarterShouldIBuyThis` function above,
   // then uncomment the following use cases
-  // console.log(smarterShouldIBuyThis(50, 45, horribleSaver) === "Nope! Gotta keep my savings up!");
+  console.log(smarterShouldIBuyThis(50, 45, horribleSaver) === "Nope! Gotta keep my savings up!");
 
   // Can you define your own spending strategy?
   // Scroll up to yourSpendingStrategy above
-  // console.log(smarterShouldIBuyThis(____, ____, yourSpendingStrategy) === ____);
+  console.log(smarterShouldIBuyThis(50, 45, yourSpendingStrategy) === "Nope! Gotta keep my savings up!");
 
-  /*
+  
   // Like all callbacks, we may define a predicate function as an anonymous
   // function (i.e. without storing it in a variable):
-  console.log(shouldIBuyThis(999, ____(____) {
-    return ____ > 1000;
+  console.log(shouldIBuyThis(999, function(balance) {
+    return balance > 1000;
   }) === "Nope! Gotta keep my savings up!");
-  */
+  
 }
 
 
