@@ -1,5 +1,7 @@
 function getAnswer(entry) {
   // Put your code here.
+  var start = entry.indexOf(':');
+  return entry.slice(start+2, entry.length);
 }
 
 
