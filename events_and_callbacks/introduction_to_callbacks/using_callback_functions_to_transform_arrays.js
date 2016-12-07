@@ -19,35 +19,36 @@ var bothArraysAreEqual = function(arrayA, arrayB) {
   return true;
 };
 
-/*
+
 // This function will go over every element in an array one by one, calling the
 // callback with each item, and building a new array with the callback's return
 // values. Replace the `____`s to make it work.
-var map = function(____, ____) {
+var map = function(collection, callback) {
   var newArray = [];
-  for (var ____ = ____; ____ < ____.____; ____++) {
-    var ____ = ____[____];
-    newArray[____] = ____(____);
+  for (var i = 0; i < collection.length; i++) {
+    newArray.push(callback(collection[i]))
+    // var ____ = ____[____];
+    // newArray[____] = ____(____);
   }
   return newArray;
 };
-*/
 
-/*
+
+
 // This function will go over every element in an array one by one, calling the
 // callback with each item, adding the element to a new array only if
 // the callback returns true, and finally returning the new array.
-var filter = function(____, ____) {
+var filter = function(collection, callback) {
   var filteredArray = [];
-  for (var ____ = ____; ____ < ____.____; ____++) {
-    var ____ = ____[____];
-    if (____(____)) {
-      filteredArray.push(____);
+  for (var i = 0; i < collection.length; i++) {
+    // var ____ = ____[____];
+    if (callback(collection[i])) {
+      filteredArray.push(collection[i]);
     }
   }
   return filteredArray;
 };
-*/
+
 
 
 // USE CASES ARE HERE. STOP SCROLLING! STOOOPPPPPPP.
@@ -62,7 +63,7 @@ if (!module.parent) {
   // You will know the code works because the word "true" will appear when
   // you run `node using_callback_functions_to_transform_arrays.js`
 
-  /*
+  
   // Defining an array, calling each on another array, and filling the new array
   // is a common pattern known as "mapping".
   // Find, uncomment, and implement the "map" function defined above and fill in
@@ -74,19 +75,19 @@ if (!module.parent) {
 
   var expectedSquaredNumbers = [4, 64, 9];
   console.log(bothArraysAreEqual(squaredNumbers, expectedSquaredNumbers));
-  */
+  
 
-  /*
+  
   // Let's shout some words:
-  var shoutedWords = ____(["one", "two", "three"], ____(____) {
-    ____ ____.toUpperCase();
+  var shoutedWords = map(["one", "two", "three"], function(item) {
+    return item.toUpperCase();
   });
 
   var expectedShoutedWords = ["ONE", "TWO", "THREE"];
   console.log(bothArraysAreEqual(shoutedWords, expectedShoutedWords));
-  */
+  
 
-  /*
+  
   // Sometimes you'll want to take an array and remove elements that don't
   // match certain criteria. Uncomment and implement the "filter" function in
   // the source code above.
@@ -94,21 +95,21 @@ if (!module.parent) {
   // A callback that returns a boolean (a true or false value) is known as a
   // "predicate".
 
-  var onlyEvenNumbers = filter([2, 9, 6, 8, 4], ____(____) {
-    ____ ____ % 2 === 0;
+  var onlyEvenNumbers = filter([2, 9, 6, 8, 4], function(item) {
+    return item % 2 === 0;
   });
 
-  console.log(bothArraysAreEqual(onlyEvenNumbers, [2, 6, 8, 4]);
-  */
+  console.log(bothArraysAreEqual(onlyEvenNumbers, [2, 6, 8, 4]));
+  
 
-  /*
+  
   // Let's filter a list down to words that start with the best letter ever.
   // Yes. That letter is Z.
 
-  var bestWordPredicate = function(____) {
-    return ____.toUpperCase().charAt(0) === "Z";
+  var bestWordPredicate = function(word) {
+    return word.toUpperCase().charAt(0) === "Z";
   };
-  var onlyAwesomeWords = ____(["zookeeper", "zelda", "misanthrope", "anarchy", "acrostic"], ____);
+  var onlyAwesomeWords = filter(["zookeeper", "zelda", "misanthrope", "anarchy", "acrostic"], bestWordPredicate);
   console.log(bothArraysAreEqual(onlyAwesomeWords, ["zookeeper", "zelda"]));
-  */
+  
 }
